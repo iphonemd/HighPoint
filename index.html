@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>High Point Caulking & Waterproofing</title>
-    <link rel="stylesheet" href="styles/index3d.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
@@ -12,25 +16,28 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo-container">
-                    <svg class="logo" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Arrow Logo -->
-                        <path d="M10 25H35" stroke="#0052cc" stroke-width="3" stroke-linecap="round"/>
-                        <path d="M25 10L40 25L25 40" stroke="#0052cc" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <div class="company-name">High Point</div>
+                    <img src="images/logo.PNG" alt="High Point Logo" class="logo">
                 </div>
                 
                 <nav id="navbar">
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#services">Services</a></li>
+                        <li><a href="#projects">Projects</a></li>
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
                 
+                <div class="cta-header">
+                    <a href="tel:5551234567" class="phone-number"><i class="fas fa-phone"></i> (555) 123-4567</a>
+                    <a href="#contact" class="btn btn-sm">Get Quote</a>
+                </div>
+                
                 <div class="mobile-menu" id="mobile-menu">
-                    ☰
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </div>
         </div>
@@ -38,11 +45,73 @@
     
     <!-- Hero Section -->
     <section class="hero" id="home">
+        <div class="hero-slider">
+            <div class="hero-slide active">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>Professional Sealant & Waterproofing Solutions</h1>
+                        <p>Ensure the longevity and protection of your commercial buildings with expert caulking and waterproofing services from High Point.</p>
+                        <div class="hero-cta">
+                            <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+                            <a href="#services" class="btn btn-outline">Explore Services</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-slide">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>Proven Expertise Since 2005</h1>
+                        <p>With over 20 years of industry experience, we deliver superior waterproofing solutions for commercial properties.</p>
+                        <div class="hero-cta">
+                            <a href="#about" class="btn btn-primary">About Us</a>
+                            <a href="#contact" class="btn btn-outline">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-slider-nav">
+                <span class="slider-dot active"></span>
+                <span class="slider-dot"></span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features">
         <div class="container">
-            <div class="hero-content">
-                <h1>Professional Sealant & Waterproofing Solutions</h1>
-                <p>Ensure the longevity and protection of your commercial buildings with expert caulking and waterproofing services from High Point. We provide durable, high-performance solutions designed to withstand the elements and maintain structural integrity.</p>
-                <a href="#contact" class="btn">Get a Free Quote</a>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Certified Experts</h3>
+                    <p>Our team consists of highly trained and certified professionals.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>20+ Years Experience</h3>
+                    <p>Decades of industry expertise and successful projects.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Quality Guaranteed</h3>
+                    <p>We stand behind our work with comprehensive warranties.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Advanced Technology</h3>
+                    <p>Using the latest materials and application techniques.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -51,70 +120,334 @@
     <section class="section" id="services">
         <div class="container">
             <div class="section-header">
+                <span class="section-subtitle">What We Offer</span>
                 <h2>Our Services</h2>
                 <p>We provide comprehensive sealant and waterproofing solutions tailored to meet your specific needs and requirements.</p>
             </div>
             
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card" data-service="sealants">
                     <div class="service-img">
-                        <img src="https://via.placeholder.com/400x300" alt="Residential Caulking">
+                        <img src="/api/placeholder/600/400" alt="Sealants">
+                        <div class="service-overlay">
+                            <span>Learn More</span>
+                        </div>
                     </div>
                     <div class="service-content">
-                        <h3 class="tilt-effect">Sealants</h3>
-                        <p>Our sealant services provide superior protection for buildings, preventing water infiltration and air leaks. With expert application, we ensure long-lasting durability, helping to maintain the integrity and efficiency of your structure.</p>
+                        <div class="service-icon">
+                            <i class="fas fa-fill-drip"></i>
+                        </div>
+                        <h3>Sealants</h3>
+                        <p>Our sealant services provide superior protection for buildings, preventing water infiltration and air leaks.</p>
                     </div>
                 </div>
                 
-                <div class="service-card">
+                <div class="service-card" data-service="commercial">
                     <div class="service-img">
-                        <img src="https://via.placeholder.com/400x300" alt="Commercial Waterproofing">
+                        <img src="/api/placeholder/600/400" alt="Commercial Waterproofing">
+                        <div class="service-overlay">
+                            <span>Learn More</span>
+                        </div>
                     </div>
                     <div class="service-content">
-                        <h3 class="tilt-effect">Commercial Waterproofing</h3>
-                        <p>Our commercial waterproofing services protect your business properties from water damage, extending the life of your building structures.</p>
+                        <div class="service-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Commercial Waterproofing</h3>
+                        <p>Our commercial waterproofing services protect your business properties from water damage.</p>
                     </div>
                 </div>
                 
-                <div class="service-card">
+                <div class="service-card" data-service="paving">
                     <div class="service-img">
-                        <img src="https://via.placeholder.com/400x300" alt="Bathroom Sealing">
+                        <img src="/api/placeholder/600/400" alt="Site & Paving Sealants">
+                        <div class="service-overlay">
+                            <span>Learn More</span>
+                        </div>
                     </div>
                     <div class="service-content">
-                        <h3 class="tilt-effect">Site & Paving Sealants</h3>
+                        <div class="service-icon">
+                            <i class="fas fa-road"></i>
+                        </div>
+                        <h3>Site & Paving Sealants</h3>
                         <p>We help extend the lifespan of your pavement while maintaining a safe and professional appearance.</p>
                     </div>
                 </div>
                 
-                <div class="service-card">
+                <div class="service-card" data-service="belowgrade">
                     <div class="service-img">
-                        <img src="https://via.placeholder.com/400x300" alt="Exterior Waterproofing">
+                        <img src="/api/placeholder/600/400" alt="Below Grade Waterproofing">
+                        <div class="service-overlay">
+                            <span>Learn More</span>
+                        </div>
                     </div>
                     <div class="service-content">
-                        <h3 class="tilt-effect">Below Grade Waterproofing</h3>
-                        <p>We apply durable, high-performance below grade waterproofing solutions designed to keep your building dry and secure for years to come.</p>
+                        <div class="service-icon">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <h3>Below Grade Waterproofing</h3>
+                        <p>We apply durable, high-performance below grade waterproofing solutions designed to keep your building dry.</p>
                     </div>
                 </div>
                 
-                <div class="service-card">
+                <div class="service-card" data-service="airbarrier">
                     <div class="service-img">
-                        <img src="https://via.placeholder.com/400x300" alt="Foundation Waterproofing">
+                        <img src="/api/placeholder/600/400" alt="Air Barrier">
+                        <div class="service-overlay">
+                            <span>Learn More</span>
+                        </div>
                     </div>
                     <div class="service-content">
-                        <h3 class="tilt-effect">Air Barrier</h3>
-                        <p>By applying high-quality air barrier systems, we help improve indoor air quality, reduce energy costs, and protect your structure from moisture infiltration and environmental wear.</p>
+                        <div class="service-icon">
+                            <i class="fas fa-wind"></i>
+                        </div>
+                        <h3>Air Barrier</h3>
+                        <p>By applying high-quality air barrier systems, we help improve indoor air quality and reduce energy costs.</p>
                     </div>
                 </div>
                 
-                <div class="service-card">
+                <div class="service-card" data-service="maintenance">
                     <div class="service-img">
-                        <img src="https://via.placeholder.com/400x300" alt="Maintenance Services">
+                        <img src="/api/placeholder/600/400" alt="Maintenance Services">
+                        <div class="service-overlay">
+                            <span>Learn More</span>
+                        </div>
                     </div>
                     <div class="service-content">
-                        <h3 class="tilt-effect">Maintenance Services</h3>
-                        <p>Our regular maintenance services ensure that your caulking and waterproofing systems remain effective and provide long-lasting protection.</p>
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Maintenance Services</h3>
+                        <p>Our regular maintenance services ensure that your caulking and waterproofing systems remain effective.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+        
+        <!-- Service Modal -->
+        <div class="service-modal" id="serviceModal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="modal-body">
+                    <!-- Sealants -->
+                    <div class="service-details" id="sealants">
+                        <h2>Sealants</h2>
+                        <div class="service-details-grid">
+                            <div class="service-details-img">
+                                <img src="/api/placeholder/800/500" alt="Sealants">
+                            </div>
+                            <div class="service-details-content">
+                                <p>Our professional sealant services provide superior protection for buildings of all types, preventing water infiltration and air leaks that can damage your structure. We use only the highest quality materials to ensure long-lasting durability and performance.</p>
+                                
+                                <h4>Benefits Include:</h4>
+                                <ul>
+                                    <li>Enhanced building envelope protection</li>
+                                    <li>Prevention of water and air infiltration</li>
+                                    <li>Improved energy efficiency</li>
+                                    <li>Extended building lifespan</li>
+                                    <li>Prevention of mold and mildew growth</li>
+                                </ul>
+                                
+                                <h4>Applications:</h4>
+                                <p>Our sealant services are ideal for expansion joints, control joints, window perimeters, door frames, precast concrete panels, EIFS systems, and much more.</p>
+                                
+                                <a href="#contact" class="btn btn-primary">Request Quote</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Commercial Waterproofing -->
+                    <div class="service-details" id="commercial">
+                        <h2>Commercial Waterproofing</h2>
+                        <div class="service-details-grid">
+                            <div class="service-details-img">
+                                <img src="/api/placeholder/800/500" alt="Commercial Waterproofing">
+                            </div>
+                            <div class="service-details-content">
+                                <p>Our commercial waterproofing services provide comprehensive protection for your business properties, preventing water damage and extending the life of your building structures. We tailor our solutions to meet the specific needs of each commercial property.</p>
+                                
+                                <h4>Our Commercial Waterproofing Includes:</h4>
+                                <ul>
+                                    <li>Building exterior waterproofing</li>
+                                    <li>Foundation waterproofing</li>
+                                    <li>Roof and deck waterproofing</li>
+                                    <li>Plaza deck and podium waterproofing</li>
+                                    <li>Parking structure waterproofing</li>
+                                </ul>
+                                
+                                <h4>Why Choose Our Commercial Waterproofing:</h4>
+                                <p>We use advanced waterproofing technologies and materials to ensure maximum protection against water infiltration, helping to preserve the structural integrity of your commercial property and prevent costly water damage repairs.</p>
+                                
+                                <a href="#contact" class="btn btn-primary">Request Quote</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Site & Paving Sealants -->
+                    <div class="service-details" id="paving">
+                        <h2>Site & Paving Sealants</h2>
+                        <div class="service-details-grid">
+                            <div class="service-details-img">
+                                <img src="/api/placeholder/800/500" alt="Site & Paving Sealants">
+                            </div>
+                            <div class="service-details-content">
+                                <p>Our site and paving sealant services help extend the lifespan of your pavement while maintaining a safe and professional appearance. Proper sealant application prevents water infiltration that can cause damage to your pavement infrastructure.</p>
+                                
+                                <h4>Applications Include:</h4>
+                                <ul>
+                                    <li>Parking lot joint sealing</li>
+                                    <li>Sidewalk expansion joints</li>
+                                    <li>Concrete pavement joints</li>
+                                    <li>Asphalt crack sealing</li>
+                                    <li>Control joint sealing</li>
+                                </ul>
+                                
+                                <h4>Benefits:</h4>
+                                <p>Our site and paving sealants protect against water damage, freeze-thaw cycles, and UV degradation, while enhancing the visual appeal of your property and preventing weed growth and pest infiltration in pavement cracks.</p>
+                                
+                                <a href="#contact" class="btn btn-primary">Request Quote</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Below Grade Waterproofing -->
+                    <div class="service-details" id="belowgrade">
+                        <h2>Below Grade Waterproofing</h2>
+                        <div class="service-details-grid">
+                            <div class="service-details-img">
+                                <img src="/api/placeholder/800/500" alt="Below Grade Waterproofing">
+                            </div>
+                            <div class="service-details-content">
+                                <p>Our below grade waterproofing solutions are designed to protect foundations, basements, and underground structures from water infiltration. We apply durable, high-performance waterproofing systems designed to keep your building dry and secure for years to come.</p>
+                                
+                                <h4>Our Below Grade Waterproofing Includes:</h4>
+                                <ul>
+                                    <li>Foundation wall waterproofing</li>
+                                    <li>Blind-side waterproofing</li>
+                                    <li>Sheet membrane waterproofing</li>
+                                    <li>Bentonite clay systems</li>
+                                    <li>Fluid-applied waterproofing</li>
+                                </ul>
+                                
+                                <h4>Why It's Important:</h4>
+                                <p>Effective below grade waterproofing is essential for preventing structural damage, mold growth, and interior water damage. Our systems are designed to withstand hydrostatic pressure and provide long-term protection for your building's foundation.</p>
+                                
+                                <a href="#contact" class="btn btn-primary">Request Quote</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Air Barrier -->
+                    <div class="service-details" id="airbarrier">
+                        <h2>Air Barrier</h2>
+                        <div class="service-details-grid">
+                            <div class="service-details-img">
+                                <img src="/api/placeholder/800/500" alt="Air Barrier">
+                            </div>
+                            <div class="service-details-content">
+                                <p>By applying high-quality air barrier systems, we help improve indoor air quality, reduce energy costs, and protect your structure from moisture infiltration and environmental wear. Our air barrier solutions create a continuous seal around your building envelope.</p>
+                                
+                                <h4>Benefits of Our Air Barrier Systems:</h4>
+                                <ul>
+                                    <li>Enhanced energy efficiency</li>
+                                    <li>Reduced heating and cooling costs</li>
+                                    <li>Prevention of condensation within walls</li>
+                                    <li>Improved indoor air quality</li>
+                                    <li>Reduced risk of mold and mildew</li>
+                                </ul>
+                                
+                                <h4>Our Air Barrier Solutions:</h4>
+                                <p>We offer a variety of air barrier solutions, including fluid-applied membranes, sheet membranes, and spray-applied foams, all designed to create an effective continuous air barrier that meets building code requirements and enhances building performance.</p>
+                                
+                                <a href="#contact" class="btn btn-primary">Request Quote</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Maintenance Services -->
+                    <div class="service-details" id="maintenance">
+                        <h2>Maintenance Services</h2>
+                        <div class="service-details-grid">
+                            <div class="service-details-img">
+                                <img src="/api/placeholder/800/500" alt="Maintenance Services">
+                            </div>
+                            <div class="service-details-content">
+                                <p>Our regular maintenance services ensure that your caulking and waterproofing systems remain effective and provide long-lasting protection. Proactive maintenance helps identify potential issues before they lead to costly repairs.</p>
+                                
+                                <h4>Our Maintenance Services Include:</h4>
+                                <ul>
+                                    <li>Regular inspections of sealant and waterproofing systems</li>
+                                    <li>Identification and repair of failing sealants</li>
+                                    <li>Cleaning and preparation of joints for resealing</li>
+                                    <li>Application of new sealants where needed</li>
+                                    <li>Documentation and reporting on system condition</li>
+                                </ul>
+                                
+                                <h4>Benefits of Regular Maintenance:</h4>
+                                <p>Regular maintenance extends the life of your waterproofing systems, prevents water damage, reduces long-term repair costs, and helps maintain the value and integrity of your property. Our maintenance programs can be customized to meet the specific needs of your facility.</p>
+                                
+                                <a href="#contact" class="btn btn-primary">Request Quote</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Our Work</span>
+                <h2>Featured Projects</h2>
+                <p>Take a look at some of our recent projects where we've provided top-quality waterproofing and sealant solutions.</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/600/400" alt="Commercial Office Building">
+                        <div class="project-overlay">
+                            <h3>Commercial Office Building</h3>
+                            <p>Full building envelope waterproofing</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/600/400" alt="Hospital Complex">
+                        <div class="project-overlay">
+                            <h3>Hospital Complex</h3>
+                            <p>Expansion joint replacement and waterproofing</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/600/400" alt="Retail Shopping Center">
+                        <div class="project-overlay">
+                            <h3>Retail Shopping Center</h3>
+                            <p>Complete exterior sealant replacement</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/600/400" alt="University Campus Buildings">
+                        <div class="project-overlay">
+                            <h3>University Campus Buildings</h3>
+                            <p>Air barrier and sealant installation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="#contact" class="btn btn-outline">Start Your Project Today</a>
             </div>
         </div>
     </section>
@@ -124,15 +457,118 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
+                    <span class="section-subtitle">Our Story</span>
                     <h2>About High Point</h2>
                     <p>With over 20 years of experience in the industry, High Point has established itself as a leading provider of sealants and waterproofing services. Our team of skilled professionals is dedicated to delivering exceptional results on every project.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="500">0</span>
+                            <span class="stat-text">Projects Completed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="20">0</span>
+                            <span class="stat-text">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="98">0</span>
+                            <span class="stat-text">% Client Satisfaction</span>
+                        </div>
+                    </div>
+                    
                     <p>We pride ourselves on our attention to detail, use of high-quality materials, and commitment to customer satisfaction. Whether it's a small maintenance job or a large commercial project, we approach each with the same level of professionalism and expertise.</p>
-                    <p>At High Point, we believe in building long-lasting relationships with our clients by providing reliable services and maintaining the highest standards of workmanship.</p>
+                    
+                    <div class="about-cta">
+                        <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    </div>
                 </div>
                 
                 <div class="about-img">
-                    <img src="https://via.placeholder.com/600x400" alt="High Point Team">
+                    <img src="/api/placeholder/600/500" alt="High Point Team">
+                    <div class="experience-badge">
+                        <span class="years">20+</span>
+                        <span class="text">Years of Experience</span>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Client Feedback</span>
+                <h2>What Our Clients Say</h2>
+                <p>Hear from our satisfied clients about their experience working with High Point.</p>
+            </div>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-slide active">
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial-text">High Point delivered exceptional waterproofing services for our commercial building. Their team was professional, knowledgeable, and completed the project on schedule. We've seen no water issues since their work was completed over a year ago.</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Robert Johnson</h4>
+                                <p>Facility Manager, ABC Corporation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial-text">We've been using High Point for all our caulking and sealant needs for over 5 years. Their attention to detail and quality of work is unmatched. They consistently deliver excellent results and stand behind their work.</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Sarah Williams</h4>
+                                <p>Property Manager, XYZ Properties</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial-text">The air barrier installation performed by High Point has significantly improved the energy efficiency of our office building. Their team was professional, thorough, and completed the project with minimal disruption to our operations.</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Michael Davis</h4>
+                                <p>Building Owner, Davis Enterprises</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-controls">
+                    <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <div class="testimonial-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Start Your Project?</h2>
+                <p>Contact us today for a free consultation and quote on your waterproofing needs.</p>
+                <a href="#contact" class="btn btn-light">Get in Touch</a>
             </div>
         </div>
     </section>
@@ -141,86 +577,105 @@
     <section class="section" id="contact">
         <div class="container">
             <div class="section-header">
+                <span class="section-subtitle">Get In Touch</span>
                 <h2>Contact Us</h2>
                 <p>Get in touch with us for a free quote or to learn more about our services. We're here to help with all your sealant and waterproofing needs.</p>
             </div>
             
             <div class="contact-content">
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" class="form-control" required>
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Phone</label>
-                            <input type="tel" id="phone" class="form-control">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="service">Service Interested In</label>
-                            <select id="service" class="form-control">
-                                <option value="">Select a service</option>
-                                <option value="Residential Caulking">Joint Sealants</option>
-                                <option value="Commercial Waterproofing">Commercial Waterproofing</option>
-                                <option value="Bathroom Sealing"></option>
-                                <option value="Exterior Waterproofing">Site & Paving Sealants</option>
-                                <option value="Foundation Waterproofing">Below Grade Waterproofing</option>
-                                <option value="Maintenance Services">Air Barrier</option>
-                                <option value="Other">Other</option>
-                            </select>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" class="form-control">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="service">Service Interested In</label>
+                                <select id="service" class="form-control">
+                                    <option value="">Select a service</option>
+                                    <option value="Sealants">Sealants</option>
+                                    <option value="Commercial Waterproofing">Commercial Waterproofing</option>
+                                    <option value="Site & Paving Sealants">Site & Paving Sealants</option>
+                                    <option value="Below Grade Waterproofing">Below Grade Waterproofing</option>
+                                    <option value="Air Barrier">Air Barrier</option>
+                                    <option value="Maintenance Services">Maintenance Services</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
                         </div>
                         
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" class="form-control" required></textarea>
+                            <textarea id="message" class="form-control" rows="5" required></textarea>
                         </div>
                         
-                        <button type="submit" class="btn">Send Message</button>
+                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
                     </form>
                 </div>
                 
                 <div class="contact-info">
-                    <h3>Our Information</h3>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div>
-                            <h4>Address</h4>
-                            <p>123 Waterproof Street, Oklahoma city, OK 12345</p>
+                    <div class="contact-card">
+                        <h3>Our Information</h3>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Address</h4>
+                                <p>123 Waterproof Street, Oklahoma city, OK 12345</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p><a href="tel:5551234567">(555) 123-4567</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p><a href="mailto:info@highpointwrp.com">info@highpointwrp.com</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4>Working Hours</h4>
+                                <p>Monday - Friday: 8:00 AM - 6:00 PM<br>
+                                Saturday: 9:00 AM - 12:00 PM<br>
+                                Sunday: Closed</p>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="contact-item">
-                        <div class="contact-icon">📞</div>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>(555) 123-4567</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
-                        <div>
-                            <h4>Email</h4>
-                            <p>info@highpointwrp.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">⏰</div>
-                        <div>
-                            <h4>Working Hours</h4>
-                            <p>Monday - Friday: 8:00 AM - 6:00 PM<br>
-                            Saturday: 9:00 AM - 12:00 PM<br>
-                            Sunday: Closed</p>
-                        </div>
+                    <div class="map-container">
+                        <img src="/api/placeholder/500/300" alt="Map Location">
                     </div>
                 </div>
             </div>
@@ -233,19 +688,14 @@
             <div class="footer-content">
                 <div class="footer-about">
                     <div class="footer-logo">
-                        <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Arrow Logo -->
-                            <path d="M10 25H35" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                            <path d="M25 10L40 25L25 40" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span>High Point</span>
+                        <img src="images/logo.PNG" alt="High Point Logo" class="footer-logo-img">
                     </div>
-                    <p>Professional sealants and waterproofing services for commercial properties.</p>
+                    <p>Professional sealants and waterproofing services for commercial properties. With over 20 years of industry experience, we're committed to quality and excellence.</p>
                     <div class="social-links">
-                        <a href="#"><span>f</span></a>
-                        <a href="#"><span>t</span></a>
-                        <a href="#"><span>in</span></a>
-                        <a href="#"><span>ig</span></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 
@@ -254,6 +704,7 @@
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#services">Services</a></li>
+                        <li><a href="#projects">Projects</a></li>
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -262,30 +713,43 @@
                 <div class="footer-links">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="#">Sealants</a></li>
-                        <li><a href="#">Commercial Waterproofing</a></li>
-                        <li><a href="#">Site & Paving Sealants</a></li>
-                        <li><a href="#">Below Grade Waterproofing</a></li>
-                        <li><a href="#">Air Barrier</a></li>
+                        <li><a href="#services" data-service="sealants">Sealants</a></li>
+                        <li><a href="#services" data-service="commercial">Commercial Waterproofing</a></li>
+                        <li><a href="#services" data-service="paving">Site & Paving Sealants</a></li>
+                        <li><a href="#services" data-service="belowgrade">Below Grade Waterproofing</a></li>
+                        <li><a href="#services" data-service="airbarrier">Air Barrier</a></li>
+                        <li><a href="#services" data-service="maintenance">Maintenance Services</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-links">
-                    <h4>Contact Us</h4>
-                    <ul>
-                        <li>📍 123 Waterproof Street</li>
-                        <li>📞 (555) 123-4567</li>
-                        <li>✉️ info@highpointwrp.com</li>
-                    </ul>
+                <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to our newsletter for the latest updates and industry news.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email Address" required>
+                        <button type="submit" class="btn btn-sm">Subscribe</button>
+                    </form>
                 </div>
             </div>
             
-            <div class="copyright">
-                &copy; 2025 High Point Roofing & Waterproofing. All Rights Reserved.
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2025 High Point Caulking & Waterproofing. All Rights Reserved.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
     
-    <script src="scripts/index3d.js"></script>
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <!-- JavaScript -->
+    <script src="scripts/index.js"></script>
 </body>
 </html>
