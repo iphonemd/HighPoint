@@ -91,6 +91,15 @@ document.addEventListener('DOMContentLoaded', function() {
         closeServiceModal();
       }
     });
+    
+    // Fix: Add event listeners to all "Request Quote" buttons in service details
+    const quoteButtons = document.querySelectorAll('.service-details .btn-primary');
+    quoteButtons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        // Close the modal before navigating
+        closeServiceModal();
+      });
+    });
   }
   
   function openServiceModal(serviceId) {
