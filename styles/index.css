@@ -1598,3 +1598,174 @@ select:focus {
     max-width: 100%;
   }
 }
+
+/* Form Validation Styles */
+.validation-error {
+  color: var(--danger);
+  font-size: 0.85rem;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.input-error {
+  border-color: var(--danger) !important;
+  background-color: rgba(229, 62, 62, 0.05);
+}
+
+/* Honeypot Field - hide from users but visible to bots */
+.website-field {
+  display: none !important;
+  opacity: 0;
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+/* Privacy Policy Checkbox */
+.checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.privacy-checkbox {
+  margin-top: 4px;
+  margin-right: 10px;
+  min-width: 16px;
+  min-height: 16px;
+}
+
+.checkbox-group label {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--gray);
+}
+
+.checkbox-group a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.checkbox-group a:hover {
+  text-decoration: underline;
+}
+
+/* Newsletter Privacy Text */
+.newsletter-privacy-text {
+  font-size: 0.75rem;
+  margin-top: 8px;
+  opacity: 0.8;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.newsletter-privacy-text a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: underline;
+}
+
+.newsletter-privacy-text a:hover {
+  color: white;
+}
+
+/* Form Messages */
+.form-message {
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.form-message.success {
+  background-color: rgba(72, 187, 120, 0.1);
+  color: var(--success);
+  border: 1px solid var(--success);
+}
+
+.form-message.success p::before {
+  content: '✓ ';
+}
+
+.form-message.error {
+  background-color: rgba(229, 62, 62, 0.1);
+  color: var(--danger);
+  border: 1px solid var(--danger);
+}
+
+.form-message.error p::before {
+  content: '✕ ';
+}
+
+/* Additional animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Required field indication */
+.form-control:required {
+  border-left: 3px solid var(--primary);
+}
+
+.service-slideshow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.service-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.service-slide.active {
+  opacity: 1;
+}
+
+.service-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service-slideshow-nav {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 5;
+}
+
+.service-slide-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 0 5px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.service-slide-dot.active {
+  background-color: white;
+  transform: scale(1.2);
+}
+
+/* Make sure the overlay remains on top of the slideshow */
+.service-overlay {
+  z-index: 4;
+}
+
+/* Pause slideshow on hover */
+.service-card:hover .service-slideshow .service-slide.active {
+  animation-play-state: paused;
+}
