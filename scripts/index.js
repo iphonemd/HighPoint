@@ -518,11 +518,13 @@ document.addEventListener('DOMContentLoaded', function() {
       emailInput.setAttribute('name', 'email');
     }
     
+    /*
     // Add tiny privacy text below the newsletter form
     const privacyText = document.createElement('div');
     privacyText.className = 'newsletter-privacy-text';
     privacyText.innerHTML = `By subscribing, you agree to our <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.`;
     newsletterForm.appendChild(privacyText);
+    */
     
     newsletterForm.addEventListener('submit', function(event) {
       event.preventDefault();
