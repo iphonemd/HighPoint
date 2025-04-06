@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     
-    // Fix: Add event listeners to all "Request Quote" buttons in service details
+    // Add event listeners to all "Request Quote" buttons in service details
     const quoteButtons = document.querySelectorAll('.service-details .btn-primary');
     quoteButtons.forEach(button => {
       button.addEventListener('click', function(e) {
@@ -212,42 +212,30 @@ document.addEventListener('DOMContentLoaded', function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
-  
-  // Form Submission
-  /*const contactForm = document.getElementById('contactForm');
-  
-  if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
+
+  const setupMapsLink = () => {
+    const mapLinks = document.querySelectorAll('.maps-link');
+    
+    mapLinks.forEach(link => {
+      const address = link.getAttribute('data-address');
+      if (!address) return;
       
-      // Simulate form submission
-      const submitBtn = this.querySelector('button[type="submit"]');
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = 'Sending...';
+      const encodedAddress = encodeURIComponent(address);
       
-      // In a real implementation, you would send the form data to your server here
-      setTimeout(() => {
-        // Reset form
-        contactForm.reset();
-        
-        // Show success message
-        const formMessage = document.createElement('div');
-        formMessage.className = 'form-message success';
-        formMessage.innerHTML = '<p>Thank you! Your message has been sent successfully.</p>';
-        
-        contactForm.appendChild(formMessage);
-        
-        // Reset button
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = 'Send Message';
-        
-        // Remove message after 5 seconds
-        setTimeout(() => {
-          formMessage.remove();
-        }, 5000);
-      }, 1500);
+      // Detect iOS device
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      
+      if (isIOS) {
+        // Apple Maps URL
+        link.href = `maps://maps.apple.com/?address=${encodedAddress}&dirflg=d`;
+      } else {
+        // Google Maps URL (default for non-iOS)
+        link.href = `https://www.google.com/maps/dir/?api=1&destination=${encodedAddress}`;
+      }
     });
-  }*/
+  };
+
+  setupMapsLink();
   
   // Smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
@@ -265,44 +253,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
-  
-  // Newsletter form
-  /*const newsletterForm = document.querySelector('.newsletter-form');
-  
-  if (newsletterForm) {
-    newsletterForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const emailInput = this.querySelector('input[type="email"]');
-      const submitBtn = this.querySelector('button');
-      
-      if (emailInput.value.trim() !== '') {
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = 'Subscribing...';
-        
-        // Simulate form submission
-        setTimeout(() => {
-          this.reset();
-          
-          // Show success message
-          const successMessage = document.createElement('p');
-          successMessage.className = 'success-message';
-          successMessage.textContent = 'Thank you for subscribing!';
-          successMessage.style.color = 'white';
-          successMessage.style.marginTop = '10px';
-          
-          this.appendChild(successMessage);
-          
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = 'Subscribe';
-          
-          setTimeout(() => {
-            successMessage.remove();
-          }, 3000);
-        }, 1000);
-      }
-    });
-  }*/
 });
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -446,7 +396,6 @@ document.addEventListener('DOMContentLoaded', function() {
       );
       
       // Use Formspree to handle the form submission
-      // Replace 'YOUR_FORMSPREE_ENDPOINT' with your unique endpoint
       fetch('https://formspree.io/f/xyzenayg', {
         method: 'POST',
         body: formData,
@@ -518,14 +467,6 @@ document.addEventListener('DOMContentLoaded', function() {
       emailInput.setAttribute('name', 'email');
     }
     
-    /*
-    // Add tiny privacy text below the newsletter form
-    const privacyText = document.createElement('div');
-    privacyText.className = 'newsletter-privacy-text';
-    privacyText.innerHTML = `By subscribing, you agree to our <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.`;
-    newsletterForm.appendChild(privacyText);
-    */
-    
     newsletterForm.addEventListener('submit', function(event) {
       event.preventDefault();
       
@@ -552,7 +493,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const formData = new FormData(newsletterForm);
       
       // Use Formspree to handle the form submission
-      // Replace 'YOUR_NEWSLETTER_FORMSPREE_ENDPOINT' with your unique endpoint
       fetch('https://formspree.io/f/movekzqj', {
         method: 'POST',
         body: formData,
@@ -617,87 +557,107 @@ document.addEventListener('DOMContentLoaded', function() {
   // Service Slideshows
   initServiceSlideshows();
   
-  function initServiceSlideshows() {
-      const serviceCards = document.querySelectorAll('.service-card');
+// Service Slideshows - Improved for dynamic dot generation
+function initServiceSlideshows() {
+  const serviceCards = document.querySelectorAll('.service-card');
+  
+  serviceCards.forEach(card => {
+    const slideshow = card.querySelector('.service-slideshow');
+    if (!slideshow) return; // Skip if no slideshow
+    
+    const slides = slideshow.querySelectorAll('.service-slide');
+    if (slides.length <= 1) return; // Skip if only one slide
+    
+    // Clear any existing dots first
+    const dotsContainer = card.querySelector('.service-slideshow-nav');
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
       
-      serviceCards.forEach(card => {
-          const slideshow = card.querySelector('.service-slideshow');
-          if (!slideshow) return; // Skip if no slideshow
-          
-          const slides = slideshow.querySelectorAll('.service-slide');
-          const dots = card.querySelectorAll('.service-slide-dot');
-          if (slides.length <= 1) return; // Skip if only one slide
-          
-          // Set up automatic slideshow
-          let slideInterval;
-          startSlideshow();
-          
-          function startSlideshow() {
-              // Clear any existing interval first
-              if (slideInterval) {
-                  clearInterval(slideInterval);
-              }
-              
-              slideInterval = setInterval(() => {
-                  nextServiceSlide(slideshow);
-              }, 5000); // Change slide every 5 seconds
-          }
-          
-          // Stop slideshow on hover or when modal is open
-          card.addEventListener('mouseenter', () => {
-              clearInterval(slideInterval);
-          });
-          
-          // Resume slideshow when mouse leaves
-          card.addEventListener('mouseleave', () => {
-              startSlideshow();
-          });
-          
-          // Add click events to dots
-          dots.forEach((dot, index) => {
-              dot.addEventListener('click', (e) => {
-                  e.stopPropagation(); // Prevent triggering service modal
-                  changeServiceSlide(slideshow, index);
-              });
-          });
-          
-          // Make sure slideshow pauses when service modal is open
-          card.addEventListener('click', () => {
-              clearInterval(slideInterval);
-          });
-          
-          // Listen for modal close to restart slideshow
-          document.querySelector('.close-modal').addEventListener('click', () => {
-              // Only restart if we're not hovering over card
-              if (!card.matches(':hover')) {
-                  startSlideshow();
-              }
-          });
+      // Create dots based on the number of slides
+      slides.forEach((slide, index) => {
+        const dot = document.createElement('span');
+        dot.className = index === 0 ? 'service-slide-dot active' : 'service-slide-dot';
+        dot.setAttribute('data-index', index);
+        dotsContainer.appendChild(dot);
       });
-  }
+    }
+    
+    // Get newly created dots
+    const dots = card.querySelectorAll('.service-slide-dot');
+    
+    // Set up automatic slideshow
+    let slideInterval;
+    startSlideshow();
+    
+    function startSlideshow() {
+      // Clear any existing interval first
+      if (slideInterval) {
+        clearInterval(slideInterval);
+      }
+      
+      slideInterval = setInterval(() => {
+        nextServiceSlide(slideshow);
+      }, 5000); // Change slide every 5 seconds
+    }
+    
+    // Stop slideshow on hover or when modal is open
+    card.addEventListener('mouseenter', () => {
+      clearInterval(slideInterval);
+    });
+    
+    // Resume slideshow when mouse leaves
+    card.addEventListener('mouseleave', () => {
+      startSlideshow();
+    });
+    
+    // Add click events to dots
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent triggering service modal
+        changeServiceSlide(slideshow, index);
+      });
+    });
+    
+    // Make sure slideshow pauses when service modal is open
+    card.addEventListener('click', () => {
+      clearInterval(slideInterval);
+    });
+    
+    // Listen for modal close to restart slideshow
+    const closeModalBtn = document.querySelector('.close-modal');
+    if (closeModalBtn) {
+      closeModalBtn.addEventListener('click', () => {
+        // Only restart if we're not hovering over card
+        if (!card.matches(':hover')) {
+          startSlideshow();
+        }
+      });
+    }
+  });
+}
+
+function nextServiceSlide(slideshow) {
+  const slides = slideshow.querySelectorAll('.service-slide');
+  const card = slideshow.closest('.service-card');
+  const dots = card.querySelectorAll('.service-slide-dot');
   
-  function nextServiceSlide(slideshow) {
-      const slides = slideshow.querySelectorAll('.service-slide');
-      const card = slideshow.closest('.service-card');
-      const dots = card.querySelectorAll('.service-slide-dot');
-      
-      let currentIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
-      let nextIndex = (currentIndex + 1) % slides.length;
-      
-      changeServiceSlide(slideshow, nextIndex);
-  }
+  let currentIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
+  let nextIndex = (currentIndex + 1) % slides.length;
   
-  function changeServiceSlide(slideshow, index) {
-      const slides = slideshow.querySelectorAll('.service-slide');
-      const card = slideshow.closest('.service-card');
-      const dots = card.querySelectorAll('.service-slide-dot');
-      
-      // Remove active class from all slides and dots
-      slides.forEach(slide => slide.classList.remove('active'));
-      dots.forEach(dot => dot.classList.remove('active'));
-      
-      // Add active class to the desired slide and dot
-      slides[index].classList.add('active');
-      dots[index].classList.add('active');
-  }
+  changeServiceSlide(slideshow, nextIndex);
+}
+
+function changeServiceSlide(slideshow, index) {
+  const slides = slideshow.querySelectorAll('.service-slide');
+  const card = slideshow.closest('.service-card');
+  const dots = card.querySelectorAll('.service-slide-dot');
+  
+  // Remove active class from all slides and dots
+  slides.forEach(slide => slide.classList.remove('active'));
+  dots.forEach(dot => dot.classList.remove('active'));
+  
+  // Add active class to the desired slide and dot
+  slides[index].classList.add('active');
+  dots[index].classList.add('active');
+}
 });

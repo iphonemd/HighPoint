@@ -484,6 +484,7 @@ nav ul li a:hover::after {
   align-items: center;
   justify-content: center;
   box-shadow: var(--shadow);
+  z-index: 50;
 }
 
 .service-content h3 {
@@ -1708,6 +1709,7 @@ select:focus {
   border-left: 3px solid var(--primary);
 }
 
+/* Service Slideshow Specific Styles - Cleaned and optimized */
 .service-slideshow {
   position: relative;
   width: 100%;
@@ -1723,16 +1725,19 @@ select:focus {
   height: 100%;
   opacity: 0;
   transition: opacity 0.8s ease;
+  z-index: 1;
 }
 
 .service-slide.active {
   opacity: 1;
+  z-index: 2;
 }
 
 .service-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
 .service-slideshow-nav {
@@ -1752,7 +1757,7 @@ select:focus {
   background-color: rgba(255, 255, 255, 0.5);
   margin: 0 5px;
   cursor: pointer;
-  transition: var(--transition);
+  transition: all 0.3s ease;
 }
 
 .service-slide-dot.active {
@@ -1760,12 +1765,31 @@ select:focus {
   transform: scale(1.2);
 }
 
-/* Make sure the overlay remains on top of the slideshow */
+/* Service Card & Overlay styles */
+.service-card:hover .service-img img {
+  transform: scale(1.1);
+}
+
 .service-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 82, 204, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
   z-index: 4;
 }
 
+.service-card:hover .service-overlay {
+  opacity: 1;
+}
+
 /* Pause slideshow on hover */
-.service-card:hover .service-slideshow .service-slide.active {
-  animation-play-state: paused;
+.service-card:hover .service-slideshow .service-slide {
+  transition: opacity 0.8s ease;
 }
