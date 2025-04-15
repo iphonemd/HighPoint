@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const nextBtn = document.querySelector('.next-btn');
   let currentTestimonial = 0;
   
-  if (testimonialSlides.length > 0) {
+  if (testimonialSlides.length > 1) {
     // Next testimonial button
     nextBtn.addEventListener('click', function() {
       changeTestimonial((currentTestimonial + 1) % testimonialSlides.length);
@@ -557,104 +557,104 @@ document.addEventListener('DOMContentLoaded', function() {
   // Service Slideshows
   initServiceSlideshows();
   
-// Service Slideshows - Improved for dynamic dot generation
-function initServiceSlideshows() {
-  const serviceCards = document.querySelectorAll('.service-card');
-  
-  serviceCards.forEach(card => {
-    const slideshow = card.querySelector('.service-slideshow');
-    if (!slideshow) return; // Skip if no slideshow
+  // Service Slideshows - Improved for dynamic dot generation
+  function initServiceSlideshows() {
+    const serviceCards = document.querySelectorAll('.service-card');
     
-    const slides = slideshow.querySelectorAll('.service-slide');
-    if (slides.length <= 1) return; // Skip if only one slide
-    
-    // Clear any existing dots first
-    const dotsContainer = card.querySelector('.service-slideshow-nav');
-    if (dotsContainer) {
-      dotsContainer.innerHTML = '';
+    serviceCards.forEach(card => {
+      const slideshow = card.querySelector('.service-slideshow');
+      if (!slideshow) return; // Skip if no slideshow
       
-      // Create dots based on the number of slides
-      slides.forEach((slide, index) => {
-        const dot = document.createElement('span');
-        dot.className = index === 0 ? 'service-slide-dot active' : 'service-slide-dot';
-        dot.setAttribute('data-index', index);
-        dotsContainer.appendChild(dot);
-      });
-    }
-    
-    // Get newly created dots
-    const dots = card.querySelectorAll('.service-slide-dot');
-    
-    // Set up automatic slideshow
-    let slideInterval;
-    startSlideshow();
-    
-    function startSlideshow() {
-      // Clear any existing interval first
-      if (slideInterval) {
-        clearInterval(slideInterval);
+      const slides = slideshow.querySelectorAll('.service-slide');
+      if (slides.length <= 1) return; // Skip if only one slide
+      
+      // Clear any existing dots first
+      const dotsContainer = card.querySelector('.service-slideshow-nav');
+      if (dotsContainer) {
+        dotsContainer.innerHTML = '';
+        
+        // Create dots based on the number of slides
+        slides.forEach((slide, index) => {
+          const dot = document.createElement('span');
+          dot.className = index === 0 ? 'service-slide-dot active' : 'service-slide-dot';
+          dot.setAttribute('data-index', index);
+          dotsContainer.appendChild(dot);
+        });
       }
       
-      slideInterval = setInterval(() => {
-        nextServiceSlide(slideshow);
-      }, 5000); // Change slide every 5 seconds
-    }
-    
-    // Stop slideshow on hover or when modal is open
-    card.addEventListener('mouseenter', () => {
-      clearInterval(slideInterval);
-    });
-    
-    // Resume slideshow when mouse leaves
-    card.addEventListener('mouseleave', () => {
+      // Get newly created dots
+      const dots = card.querySelectorAll('.service-slide-dot');
+      
+      // Set up automatic slideshow
+      let slideInterval;
       startSlideshow();
-    });
-    
-    // Add click events to dots
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', (e) => {
-        e.stopPropagation(); // Prevent triggering service modal
-        changeServiceSlide(slideshow, index);
-      });
-    });
-    
-    // Make sure slideshow pauses when service modal is open
-    card.addEventListener('click', () => {
-      clearInterval(slideInterval);
-    });
-    
-    // Listen for modal close to restart slideshow
-    const closeModalBtn = document.querySelector('.close-modal');
-    if (closeModalBtn) {
-      closeModalBtn.addEventListener('click', () => {
-        // Only restart if we're not hovering over card
-        if (!card.matches(':hover')) {
-          startSlideshow();
+      
+      function startSlideshow() {
+        // Clear any existing interval first
+        if (slideInterval) {
+          clearInterval(slideInterval);
         }
+        
+        slideInterval = setInterval(() => {
+          nextServiceSlide(slideshow);
+        }, 5000); // Change slide every 5 seconds
+      }
+      
+      // Stop slideshow on hover or when modal is open
+      card.addEventListener('mouseenter', () => {
+        clearInterval(slideInterval);
       });
-    }
-  });
-}
+      
+      // Resume slideshow when mouse leaves
+      card.addEventListener('mouseleave', () => {
+        startSlideshow();
+      });
+      
+      // Add click events to dots
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', (e) => {
+          e.stopPropagation(); // Prevent triggering service modal
+          changeServiceSlide(slideshow, index);
+        });
+      });
+      
+      // Make sure slideshow pauses when service modal is open
+      card.addEventListener('click', () => {
+        clearInterval(slideInterval);
+      });
+      
+      // Listen for modal close to restart slideshow
+      const closeModalBtn = document.querySelector('.close-modal');
+      if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', () => {
+          // Only restart if we're not hovering over card
+          if (!card.matches(':hover')) {
+            startSlideshow();
+          }
+        });
+      }
+    });
+  }
 
-function nextServiceSlide(slideshow) {
-  const slides = slideshow.querySelectorAll('.service-slide');
-  const card = slideshow.closest('.service-card');
-  const dots = card.querySelectorAll('.service-slide-dot');
-  
-  let currentIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
-  let nextIndex = (currentIndex + 1) % slides.length;
-  
-  changeServiceSlide(slideshow, nextIndex);
-}
+  function nextServiceSlide(slideshow) {
+    const slides = slideshow.querySelectorAll('.service-slide');
+    const card = slideshow.closest('.service-card');
+    const dots = card.querySelectorAll('.service-slide-dot');
+    
+    let currentIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
+    let nextIndex = (currentIndex + 1) % slides.length;
+    
+    changeServiceSlide(slideshow, nextIndex);
+  }
 
-function changeServiceSlide(slideshow, index) {
-  const slides = slideshow.querySelectorAll('.service-slide');
-  const card = slideshow.closest('.service-card');
-  const dots = card.querySelectorAll('.service-slide-dot');
-  
-  // Remove active class from all slides and dots
-  slides.forEach(slide => slide.classList.remove('active'));
-  dots.forEach(dot => dot.classList.remove('active'));
+  function changeServiceSlide(slideshow, index) {
+    const slides = slideshow.querySelectorAll('.service-slide');
+    const card = slideshow.closest('.service-card');
+    const dots = card.querySelectorAll('.service-slide-dot');
+    
+    // Remove active class from all slides and dots
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
   
   // Add active class to the desired slide and dot
   slides[index].classList.add('active');
