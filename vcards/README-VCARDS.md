@@ -66,6 +66,8 @@ your-website/
    ```
 
 ### Step 4: Add Team Photos (Optional)
+
+EDIT PHOTOS WEBP IN PHOTOPEA.COM (FREE TO USE)
 1. Create a folder: `images/team/`
 2. Add photos for each team member (recommended: 400x400px, square)
 3. Update the HTML from:
