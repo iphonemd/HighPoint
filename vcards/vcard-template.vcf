@@ -1,0 +1,50 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Full Name
+N:LastName;FirstName;;;
+ORG:High Point Roofing & Waterproofing
+TITLE:Job Title
+TEL;TYPE=CELL,VOICE:(405) 615-9838
+EMAIL;TYPE=INTERNET,WORK:email@highpointrwp.com
+ADR;TYPE=WORK:;;3539 Macdonnell Dr;Norman;OK;73069;United States
+URL:https://highpointrwp.com
+NOTE:Professional roofing and waterproofing services
+END:VCARD
+
+<!-- 
+INSTRUCTIONS FOR CREATING NEW VCARD FILES:
+========================================
+
+1. Copy this template
+2. Replace the following fields:
+   - Full Name: Display name (e.g., "John Smith")
+   - N:LastName;FirstName: Structured name (e.g., "Smith;John")
+   - TITLE: Job position (e.g., "Project Manager")
+   - TEL: Phone number
+   - EMAIL: Email address
+   
+3. Save the file with the naming convention: firstname-lastname.vcf
+   (e.g., john-smith.vcf)
+   
+4. Place the file in a "vcards" folder on your website
+
+5. Update vcards.html to reference the new file
+
+OPTIONAL FIELDS YOU CAN ADD:
+----------------------------
+PHOTO;ENCODING=b;TYPE=JPEG:[base64 encoded photo]
+TEL;TYPE=CELL:(555) 123-4567
+URL;TYPE=LinkedIn:https://linkedin.com/in/username
+BDAY:19850315
+GENDER:M
+
+NFC CARD SETUP:
+--------------
+Program your NFC card to open the URL:
+https://yourdomain.com/vcards.html#member-name
+
+Or for direct download:
+https://yourdomain.com/vcards/kraig-murray.vcf
+
+The page will automatically trigger the download when accessed via NFC tap.
+-->

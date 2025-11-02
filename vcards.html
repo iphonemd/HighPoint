@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Directory - High Point Roofing & Waterproofing</title>
+    
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .vcards-container {
+            max-width: 1200px;
+            margin: 120px auto 80px;
+            padding: 0 20px;
+        }
+        
+        .vcards-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .vcards-header h1 {
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-size: 2.5rem;
+        }
+        
+        .vcards-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .vcards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .vcard-item {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .vcard-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .vcard-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border: 4px solid var(--primary);
+            background-color: var(--light);
+        }
+        
+        .vcard-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .vcard-photo i {
+            font-size: 60px;
+            color: var(--primary);
+            line-height: 112px;
+        }
+        
+        .vcard-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+        
+        .vcard-title {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        
+        .vcard-details {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .vcard-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .vcard-detail i {
+            width: 20px;
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        .vcard-detail a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .vcard-detail a:hover {
+            color: var(--primary);
+        }
+        
+        .vcard-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .btn-download {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+        
+        .btn-download:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-download i {
+            margin-right: 8px;
+        }
+        
+        .nfc-info {
+            background-color: rgba(0, 82, 204, 0.05);
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-top: 40px;
+        }
+        
+        .nfc-info h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .nfc-info p {
+            color: var(--gray);
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .nfc-info ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .nfc-info li {
+            color: var(--gray);
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+        
+        .nfc-info li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .vcards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .vcards-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="index.html">
+                        <img src="images/logo.PNG" alt="High Point Logo" class="logo">
+                    </a>
+                </div>
+                
+                <nav id="navbar">
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="vcards.html">Team</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="cta-header">
+                    <a href="tel:4056159838" class="phone-number"><i class="fas fa-phone"></i> (405) 615-9838</a>
+                    <a href="index.html#contact" class="btn btn-sm">Get Quote</a>
+                </div>
+                
+                <div class="mobile-menu" id="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- VCards Content -->
+    <div class="vcards-container">
+        <div class="vcards-header">
+            <h1>Our Team</h1>
+            <p>Connect with our team members by downloading their contact information directly to your phone.</p>
+        </div>
+        
+        <div class="vcards-grid">
+            <!-- Example Team Member 1 -->
+            <div class="vcard-item">
+                <div class="vcard-photo">
+                    <i class="fas fa-user"></i>
+                    <!-- Replace with actual photo: <img src="images/team/member1.jpg" alt="Team Member"> -->
+                </div>
+                <h3 class="vcard-name">Kraig Murray</h3>
+                <p class="vcard-title">Owner</p>
+                <div class="vcard-details">
+                    <div class="vcard-detail">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:4056159838">(405) 615-9838</a>
+                    </div>
+                    <div class="vcard-detail">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:kmurray@highpointrwp.com">kmurray@highpointrwp.com</a>
+                    </div>
+                    <div class="vcard-detail">
+                        <i class="fas fa-building"></i>
+                        <span>High Point Roofing & Waterproofing</span>
+                    </div>
+                </div>
+                <div class="vcard-actions">
+                    <a href="vcards/kraig-murray.vcf" class="btn-download" download>
+                        <i class="fas fa-download"></i> Add Contact
+                    </a>
+                </div>
+            </div>
+
+            <div class="vcard-item">
+                <div class="vcard-photo">
+                    <i class="fas fa-user"></i>
+                    <!-- Replace with actual photo: <img src="images/team/member1.jpg" alt="Team Member"> -->
+                </div>
+                <h3 class="vcard-name">David Soto</h3>
+                <p class="vcard-title">Sales/Estimating</p>
+                <div class="vcard-details">
+                    <div class="vcard-detail">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:4056159838">(918) 978-4148</a>
+                    </div>
+                    <div class="vcard-detail">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:kmurray@highpointrwp.com">dsoto@highpointrwp.com</a>
+                    </div>
+                    <div class="vcard-detail">
+                        <i class="fas fa-building"></i>
+                        <span>High Point Roofing & Waterproofing</span>
+                    </div>
+                </div>
+                <div class="vcard-actions">
+                    <a href="vcards/kraig-murray.vcf" class="btn-download" download>
+                        <i class="fas fa-download"></i> Add Contact
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Add more as needed -->
+
+        </div>
+        
+        <!-- NFC Information Box -->
+        <div class="nfc-info">
+            <h3><i class="fas fa-info-circle"></i> How to Use NFC Business Cards</h3>
+            <p>Our NFC-enabled business cards make it easy to save contact information instantly:</p>
+            <ul>
+                <li>Simply tap your NFC-enabled phone against the business card</li>
+                <li>Your phone will open this page automatically</li>
+                <li>Click "Add Contact" to save the information to your phone</li>
+                <li>Works with iPhone (iOS 13+) and most Android devices</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Note:</strong> Make sure NFC is enabled in your phone's settings for the best experience.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="images/logo.svg" style="filter: invert(1);" alt="High Point Logo" class="footer-logo-img">
+                    </div>
+                    <p>Professional joint sealants and waterproofing services for commercial properties. With over 50 years of combined industry experience, we're committed to quality and excellence.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/p/High-Point-Roofing-Waterproofing-61575509241804/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/company/high-point-roofing-waterproofing/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="vcards.html">Team</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="index.html#services" data-service="sealants">Joint Sealants</a></li>
+                        <li><a href="index.html#services" data-service="belowgrade">Below Grade Waterproofing</a></li>
+                        <li><a href="index.html#services" data-service="airbarrier">Air Barrier</a></li>
+                        <li><a href="index.html#services" data-service="maintenance">Maintenance Services</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2025 High Point Caulking & Waterproofing. All Rights Reserved.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms-of-service.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <!-- JavaScript -->
+    <script src="scripts/index.js"></script>
+</body>
+</html>

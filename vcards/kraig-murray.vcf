@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Kraig Murray
+N:Murray;Kraig;;;
+ORG:High Point Roofing & Waterproofing
+TITLE:Owner
+TEL;TYPE=CELL,VOICE:(405) 615-9838
+EMAIL;TYPE=INTERNET,WORK:kmurray@highpointrwp.com
+ADR;TYPE=WORK:;;3539 Macdonnell Dr;Norman;OK;73069;United States
+URL:https://highpointrwp.com
+NOTE:Professional roofing and waterproofing services
+END:VCARD
