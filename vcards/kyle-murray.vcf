@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Kyle Murray
+N:Murray;Kyle;;;
+ORG:High Point Roofing & Waterproofing
+TITLE:Sales/Estimating
+TEL;TYPE=CELL,VOICE:(405) 778-4119
+EMAIL;TYPE=INTERNET,WORK:kylemurray@highpointrwp.com
+ADR;TYPE=WORK:;;3539 Macdonnell Dr;Norman;OK;73069;United States
+URL:https://highpointrwp.com
+NOTE:Professional roofing and waterproofing services
+END:VCARD

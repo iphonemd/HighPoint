@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:David Soto
+N:Barnes;Bobby;;;
+ORG:High Point Roofing & Waterproofing
+TITLE:Senior Superintendent
+TEL;TYPE=CELL,VOICE:(405) 245-9755
+EMAIL;TYPE=INTERNET,WORK:bbarnes@highpointrwp.com
+ADR;TYPE=WORK:;;3539 Macdonnell Dr;Norman;OK;73069;United States
+URL:https://highpointrwp.com
+NOTE:Professional roofing and waterproofing services
+END:VCARD
