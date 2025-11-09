@@ -1,5 +1,4 @@
 # NFC Business Card VCard System
-## Setup Guide for High Point Roofing & Waterproofing
 
 ## 📋 Overview
 This system allows team members to share their contact information via NFC-enabled business cards. When someone taps an NFC card with their phone, they'll be directed to a webpage where they can easily download the contact information.
@@ -14,7 +13,7 @@ your-website/
 │   └── ...
 ├── images/
 │   └── team/                   # Optional: team member photos
-│       ├── kraig.jpg
+│       ├── kraig.webp
 │       └── ...
 ```
 
